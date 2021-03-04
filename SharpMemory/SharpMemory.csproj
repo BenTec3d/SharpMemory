@@ -5,16 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\Images\image000.jpg" />
-    <Content Remove="wwwroot\Images\image001.jpg" />
-    <Content Remove="wwwroot\Images\image002.jpg" />
-    <Content Remove="wwwroot\Images\image003.jpg" />
-    <Content Remove="wwwroot\Images\image004.jpg" />
-    <Content Remove="wwwroot\Images\image005.jpg" />
-    <Content Remove="wwwroot\Images\image006.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="wwwroot\Images\image000.jpg" />
     <None Remove="wwwroot\Images\image001.jpg" />
     <None Remove="wwwroot\Images\image002.jpg" />
@@ -22,16 +12,6 @@
     <None Remove="wwwroot\Images\image004.jpg" />
     <None Remove="wwwroot\Images\image005.jpg" />
     <None Remove="wwwroot\Images\image006.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="wwwroot\Images\image000.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image001.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image002.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image003.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image004.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image005.jpg" />
-    <EmbeddedResource Include="wwwroot\Images\image006.jpg" />
   </ItemGroup>
 
   <ItemGroup>

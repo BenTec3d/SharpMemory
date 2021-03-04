@@ -1,12 +1,5 @@
 ﻿@page "/"
 
-<style>
-    body 
-    {
-        background-color: coral;
-    }
-</style>
-
 <ul id="hexGrid">
     @*For loop that creates all the hexagons inside the hexGrid*@
     @for (int i = 0; i < 13; i++)
@@ -20,7 +13,7 @@
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink">
-                        <img src="@game.Cards[imgNumber].ShownImage" @onclick="(() => game.Click(imgNumber))" />
+                        <img src="@game.Cards[imgNumber].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber))" />
                     </a>
                 </div>
             </li>
@@ -31,7 +24,7 @@
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink">
-                        <img src="" />
+                        <img src="" asp-append-version="true"/>
                     </a>
                 </div>
             </li>
@@ -42,7 +35,7 @@
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink">
-                        <img src="@game.Cards[imgNumber-1].ShownImage" @onclick="(() => game.Click(imgNumber-1))" />
+                        <img src="@game.Cards[imgNumber-1].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber-1))" />
                     </a>
                 </div>
             </li>
