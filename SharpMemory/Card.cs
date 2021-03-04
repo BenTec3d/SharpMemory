@@ -16,7 +16,7 @@ namespace SharpMemory
         {
             ShownImage = "/Images/image000.jpg";
             HiddenImage = hiddenImage;
-            Turned = true;
+            Turned = false;
             Solved = false;
         }
     }
