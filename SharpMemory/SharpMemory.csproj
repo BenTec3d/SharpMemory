@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\image000.jpg" />
+    <Content Remove="wwwroot\Images\image001.jpg" />
+    <Content Remove="wwwroot\Images\image002.jpg" />
+    <Content Remove="wwwroot\Images\image003.jpg" />
+    <Content Remove="wwwroot\Images\image004.jpg" />
+    <Content Remove="wwwroot\Images\image005.jpg" />
+    <Content Remove="wwwroot\Images\image006.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\Images\image000.jpg" />
+    <None Remove="wwwroot\Images\image001.jpg" />
+    <None Remove="wwwroot\Images\image002.jpg" />
+    <None Remove="wwwroot\Images\image003.jpg" />
+    <None Remove="wwwroot\Images\image004.jpg" />
+    <None Remove="wwwroot\Images\image005.jpg" />
+    <None Remove="wwwroot\Images\image006.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\Images\image000.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image001.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image002.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image003.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image004.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image005.jpg" />
+    <EmbeddedResource Include="wwwroot\Images\image006.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.3" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

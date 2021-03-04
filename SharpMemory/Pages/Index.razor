@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<ul id="hexGrid">
+    @*For loop that creates all the hexagons inside the hexGrid*@
+    @for (int i = 0; i < 13; i++)
+    {
+        @*Needed because else the lambda expression doesn't work.
+            Microsoft says not to use the loop interator inside a lambda epression*@
+        int imgNumber = i;
+        @*First 6 Hexs*@
+        if (i < 6)
+        {
+            <li class="hex">
+                <div class="hexIn">
+                    <a class="hexLink">
+                        <img src="@game.Cards[imgNumber].ShownImage" @onclick="(() => game.Click(imgNumber))" />
+                    </a>
+                </div>
+            </li>
+        }
+        @*Creates Center Hex*@
+        else if (i == 6)
+        {
+            <li class="hex">
+                <div class="hexIn">
+                    <a class="hexLink">
+                        <img src="" />
+                    </a>
+                </div>
+            </li>
+        }
+        @*Creates remaining Hexs*@
+        else if (i > 6)
+        {
+            <li class="hex">
+                <div class="hexIn">
+                    <a class="hexLink">
+                        <img src="@game.Cards[imgNumber-1].ShownImage" @onclick="(() => game.Click(imgNumber-1))" />
+                    </a>
+                </div>
+            </li>
+        }
+    }
+</ul>
+
+@code{
+    Game game = new Game();
+}
