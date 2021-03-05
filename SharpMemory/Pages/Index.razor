@@ -7,6 +7,7 @@
         @*Needed because else the lambda expression doesn't work.
             Microsoft says not to use the loop interator inside a lambda epression*@
         int imgNumber = i;
+
         @*First 6 Hexs*@
         if (i < 6)
         {
@@ -18,17 +19,19 @@
                 </div>
             </li>
         }
+
         @*Creates Center Hex*@
         else if (i == 6)
         {
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink">
-                        <img src="" asp-append-version="true"/>
+                        <img src="" asp-append-version="true" />
                     </a>
                 </div>
             </li>
         }
+
         @*Creates remaining Hexs*@
         else if (i > 6)
         {
