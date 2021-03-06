@@ -1,61 +1,68 @@
 ﻿@page "/"
 
-    <div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;"> 
-        
-        <ul id="hexGrid">
-            @*For loop that creates all the hexagons inside the hexGrid*@
-            @for (int i = 0; i < 13; i++)
+@*Preloads all the hidden images*@
+@for (int i = 1; i <= 6; i++)
+{
+    string s = "/Images/image00" + i + ".jpg";
+    <img src="@s" style="display:none">
+}
+
+<div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;">
+
+    <ul id="hexGrid">
+        @*For loop that creates all the hexagons inside the hexGrid*@
+        @for (int i = 0; i < 13; i++)
+        {
+            @*Needed because else the lambda expression doesn't work.
+                Microsoft says not to use the loop interator inside a lambda epression*@
+            int imgNumber = i;
+
+            @*First 6 Hexs*@
+            if (i < 6)
             {
-                @*Needed because else the lambda expression doesn't work.
-                    Microsoft says not to use the loop interator inside a lambda epression*@
-                int imgNumber = i;
-
-                @*First 6 Hexs*@
-                if (i < 6)
-                {
-                    <li class="hex">
-                        <div class="hexIn">
-                            <a class="hexLink">
-                                <img src="@game.Cards[imgNumber].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber))" />
-                            </a>
-                        </div>
-                    </li>
-                }
-
-                @*Creates Center Hex*@
-                else if (i == 6)
-                {
-                    <li class="hex">
-                        <div class="hexIn">
-                            <a class="hexLink">
-                                <img src="/Images/orange.jpg" />
-                                <span style="color: #212121; opacity:0.15">
-                                    88
-                                </span>
-                                <span>
-                                    @String.Format("{0:00}", game.MoveCounter)
-                                </span>
-                            </a>
-                        </div>
-                    </li>
-                }
-
-                @*Creates remaining Hexs*@
-                else if (i > 6)
-                {
-                    <li class="hex">
-                        <div class="hexIn">
-                            <a class="hexLink">
-                                <img src="@game.Cards[imgNumber-1].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber-1))" />
-                            </a>
-                        </div>
-                    </li>
-                }
+                <li class="hex">
+                    <div class="hexIn">
+                        <a class="hexLink">
+                            <img src="@game.Cards[imgNumber].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber))" />
+                        </a>
+                    </div>
+                </li>
             }
-        </ul>
 
-    </div>
+            @*Creates Center Hex*@
+            else if (i == 6)
+            {
+                <li class="hex">
+                    <div class="hexIn">
+                        <a class="hexLink">
+                            <img src="/Images/orange.jpg" />
+                            <span style="color: #212121; opacity:0.15">
+                                88
+                            </span>
+                            <span>
+                                @String.Format("{0:00}", game.MoveCounter)
+                            </span>
+                        </a>
+                    </div>
+                </li>
+            }
 
-    @code{
-        Game game = new Game();
-    }
+            @*Creates remaining Hexs*@
+            else if (i > 6)
+            {
+                <li class="hex">
+                    <div class="hexIn">
+                        <a class="hexLink">
+                            <img src="@game.Cards[imgNumber-1].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber-1))" />
+                        </a>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+
+</div>
+
+@code{
+    Game game = new Game();
+}
