@@ -8,6 +8,7 @@
 
 .hex {
     position: relative;
+    visibility: hidden;
 }
 
     .hex::after {
@@ -22,6 +23,7 @@
     padding-bottom: 110.851%; /* =  width / sin(60) */
     margin: 0 2%;
     overflow: hidden;
+    visibility: hidden;
     -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
     -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
     transform: rotate3d(0,0,1,-60deg) skewY(30deg);
@@ -29,6 +31,7 @@
 
     .hexIn * {
         position: absolute;
+        visibility: visible;
     }
 
 .hexLink {
@@ -37,7 +40,6 @@
     height: 100%;
     text-align: center;
     color: #fff;
-    visibility: visible;
     overflow: hidden;
     -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
     -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
