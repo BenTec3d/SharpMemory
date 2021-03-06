@@ -3,14 +3,11 @@
     flex-wrap: wrap;
     width: 90%;
     overflow: hidden;
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
     list-style-type: none;
 }
 
 .hex {
     position: relative;
-    visibility: hidden;
 }
 
     .hex::after {
@@ -25,7 +22,6 @@
     padding-bottom: 110.851%; /* =  width / sin(60) */
     margin: 0 2%;
     overflow: hidden;
-    visibility: hidden;
     -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
     -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
     transform: rotate3d(0,0,1,-60deg) skewY(30deg);
@@ -33,7 +29,6 @@
 
     .hexIn * {
         position: absolute;
-        visibility: visible;
     }
 
 .hexLink {
@@ -42,6 +37,7 @@
     height: 100%;
     text-align: center;
     color: #fff;
+    visibility: visible;
     overflow: hidden;
     -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
     -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
@@ -60,42 +56,14 @@
     transform: rotate3d(0,0,0,0deg);
 }
 
-.hex h1, .hex p {
+.hex span {
+    height: 100%;
     width: 100%;
-    padding: 5%;
-    box-sizing: border-box;
-    background-color: rgba(0, 128, 128, 0.8);
-    font-weight: 300;
-    -webkit-transition: -webkit-transform .2s ease-out, opacity .3s ease-out;
-    transition: transform .2s ease-out, opacity .3s ease-out;
-}
-
-.hex h1 {
-    bottom: 50%;
-    padding-top: 50%;
-    font-size: 1.5em;
-    z-index: 1;
-    -webkit-transform: translate3d(0,-100%,0);
-    -ms-transform: translate3d(0,-100%,0);
-    transform: translate3d(0,-100%,0);
-}
-
-    .hex h1::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 45%;
-        width: 10%;
-        text-align: center;
-        border-bottom: 1px solid #fff;
-    }
-
-.hex p {
-    top: 50%;
-    padding-bottom: 50%;
-    -webkit-transform: translate3d(0,100%,0);
-    -ms-transform: translate3d(0,100%,0);
-    transform: translate3d(0,100%,0);
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DigitalClockFont', Fallback, sans-serif;
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
@@ -119,6 +87,10 @@
         .hex:nth-child(10) {
             margin-left: 10%; /* Insets */
         }
+
+        .hex span {
+            font-size: 13vw;
+        }
 }
 
 @media (orientation: portrait) {
@@ -139,5 +111,9 @@
 
         .hex:nth-child(9) {
             margin-left: 16.666%; /* Insets */
+        }
+
+        .hex span {
+            font-size: 20vw;
         }
 }

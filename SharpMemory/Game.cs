@@ -70,8 +70,15 @@ namespace SharpMemory
 
         public void Click(int id)
         {
+            //If Won resets round
+            if (Won)
+            {
+                //Restarts Game (To be replaced later)
+                Init();
+            }
+
             //If it's time to reset turned cards it does so
-            if (ToReset)
+            else if (ToReset)
             {
                 Reset();
             }
@@ -128,6 +135,8 @@ namespace SharpMemory
                     Pending = true;
                     //Sets LastFlipped to the current card's id
                     LastFlipped = id;
+                    //Increases MoveCounter
+                    IncreaseMoveCounter();
                 }
 
                 //Else if there is a pending move
@@ -145,7 +154,6 @@ namespace SharpMemory
                     //Move completed, sets Pending back to false
                     Pending = false;
                     ToReset = true;
-                    MoveCounter++;
 
                     //Used in the loop below to check if there are cards left unsolved
                     bool unsolvedCards = false;
@@ -167,11 +175,18 @@ namespace SharpMemory
                         {
                             c.ShownImage = "/Images/nothing.png";
                         }
-
-                        //Restarts Game (To be replaced later)
-                        Init();
                     }
                 }
+            }
+        }
+
+        void IncreaseMoveCounter()
+        {
+            //Makes sure the counter doesn't go above 99
+            if (MoveCounter < 100)
+            {
+                //Increases MoveCounter
+                MoveCounter++;
             }
         }
     }

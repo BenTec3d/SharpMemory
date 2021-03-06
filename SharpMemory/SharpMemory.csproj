@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Fonts\" />
+    <Folder Include="wwwroot\css\Fonts\" />
   </ItemGroup>
 
 </Project>
