@@ -14,7 +14,7 @@ namespace SharpMemory
 
         public Card(string hiddenImage)
         {
-            ShownImage = "/Images/image000.jpg";
+            ShownImage = "/Images/srhlogo.svg";
             HiddenImage = hiddenImage;
             Turned = false;
             Solved = false;

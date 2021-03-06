@@ -100,7 +100,7 @@ namespace SharpMemory
                 else
                 {
                     //Resets shown image
-                    c.ShownImage = "/Images/image000.jpg";
+                    c.ShownImage = "/Images/srhlogo.svg";
                     //Resets turned status
                     c.Turned = false;
                 }
