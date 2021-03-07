@@ -12,7 +12,6 @@
 @*Shows the game screen*@
 @if (game.Won == false)
 {
-
     @*Creates the hexagons*@
     <div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;">
 
@@ -70,7 +69,7 @@
     </div>
 }
 
-@*Shows the result screen*@
+
 else
 {
     @*Creates the hexagons*@
@@ -151,27 +150,26 @@ else
         </ul>
     </div>
 
-    //Changes the background color of the snackbars
+    @*Changes the background color of the snackbars*@
     <style>
         .mdc-snackbar__surface {
             background-color: rgb(224,72,9)
         }
     </style>
 
-    //Snackbar for new personal best
+    @*Snackbar for new personal best*@
     <MatSnackbar IsOpen="@game.NewBest">
         <MatSnackbarContent Style="color:white; font-weight:400">
             Persönlicher Bestwert! Versuche es nochmal oder besuche die Seite des SRH für mehr Infos zur virtuellen Berufsausbildung am BBW Neckargemünd.
         </MatSnackbarContent>
     </MatSnackbar>
 
-    //Snackback for no new personal best
+    @*Snackback for no new personal best*@
     <MatSnackbar IsOpen="@(!game.NewBest)">
         <MatSnackbarContent Style="color:white; font-weight:400">
             Versuche es nochmal oder besuche die Seite des SRH für mehr Infos zur virtuellen Berufsausbildung am BBW Neckargemünd.
         </MatSnackbarContent>
     </MatSnackbar>
-
 }
 
 @code{
