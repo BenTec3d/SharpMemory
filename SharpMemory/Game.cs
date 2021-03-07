@@ -14,13 +14,17 @@ namespace SharpMemory
         public int LastFlipped { get; set; }
         public int MoveCounter { get; set; }
         public bool Won { get; set; }
+        public int BestResult { get; set; }
+        public bool NewBest { get; set; }
 
         public Game()
         {
+            BestResult = 99;
+            //Sets up a new round of the game
             Init();
         }
 
-        void Init()
+        public void Init()
         {
             //Init Properties
             Cards = new Card[12];
@@ -30,6 +34,7 @@ namespace SharpMemory
             LastFlipped = -1;
             MoveCounter = 0;
             Won = false;
+            NewBest = false;
 
             //Loops through all cards in the Cards array
             for (int i = 0; i < 12; i++)
@@ -70,15 +75,8 @@ namespace SharpMemory
 
         public void Click(int id)
         {
-            //If Won resets round
-            if (Won)
-            {
-                //Restarts Game (To be replaced later)
-                Init();
-            }
-
             //If it's time to reset turned cards it does so
-            else if (ToReset)
+            if (ToReset)
             {
                 Reset();
             }
@@ -87,6 +85,18 @@ namespace SharpMemory
             else
             {
                 MakeMove(id);
+            }
+        }
+
+        void CheckResult()
+        {
+            //Checks if the previous BestResult has been beaten
+            if (BestResult > MoveCounter)
+            {
+                //Overwrites old BestResult with new BestResult
+                BestResult = MoveCounter;
+                //Tells the html in index.razor that this round was a new best
+                NewBest = true;
             }
         }
 
@@ -169,12 +179,10 @@ namespace SharpMemory
                     //Checks if the user won the game
                     if (!unsolvedCards)
                     {
+                        //Tells the html in index.razor that this round is over
                         Won = true;
-                        //Loops through all cards
-                        foreach (Card c in Cards)
-                        {
-                            c.ShownImage = "/Images/nothing.png";
-                        }
+                        //Checks if this round resulted in a new BestResult
+                        CheckResult();
                     }
                 }
             }
