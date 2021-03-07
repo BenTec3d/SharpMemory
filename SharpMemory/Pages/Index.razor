@@ -1,6 +1,4 @@
 ﻿@page "/"
-
-
 @*Preloads all the images*@
 @for (int i = 1; i <= 6; i++)
 {
@@ -9,65 +7,174 @@
 }
 <img src="/Images/nothing.png" style="display:none">
 <img src="/Images/orange.png" style="display:none">
+<img src="/Images/reload.svg" style="display:none">
 
+@*Shows the game screen*@
+@if (game.Won == false)
+{
 
-@*Creates the hexagons*@
-<div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;">
+    @*Creates the hexagons*@
+    <div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;">
 
-    <ul id="hexGrid">
-        @*For loop that creates all the hexagons inside the hexGrid*@
-        @for (int i = 0; i < 13; i++)
-        {
-            @*Needed because else the lambda expression doesn't work.
-                Microsoft says not to use the loop interator inside a lambda epression*@
-            int imgNumber = i;
-
-            @*First 6 Hexs*@
-            if (i < 6)
+        <ul id="hexGrid">
+            @*For loop that creates all the hexagons inside the hexGrid*@
+            @for (int i = 0; i < 13; i++)
             {
-                <li class="hex">
-                    <div class="hexIn">
-                        <a class="hexLink">
-                            <img src="@game.Cards[imgNumber].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber))" />
-                        </a>
-                    </div>
-                </li>
-            }
+                @*Needed because else the lambda expression doesn't work.
+                    Microsoft says not to use the loop interator inside a lambda epression*@
+                int imgNumber = i;
 
-            @*Creates Center Hex*@
-            else if (i == 6)
-            {
-                <li class="hex">
-                    <div class="hexIn">
-                        <a class="hexLink">
-                            <img src="/Images/orange.jpg" />
-                            <span style="color: #212121; opacity:0.15">
-                                88
-                            </span>
-                            <span>
-                                @String.Format("{0:00}", game.MoveCounter)
-                            </span>
-                        </a>
-                    </div>
-                </li>
-            }
+                @*First 6 Hexs*@
+                if (i < 6)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                                <img src="@game.Cards[imgNumber].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber))" />
+                            </a>
+                        </div>
+                    </li>
+                }
 
-            @*Creates remaining Hexs*@
-            else if (i > 6)
-            {
-                <li class="hex">
-                    <div class="hexIn">
-                        <a class="hexLink">
-                            <img src="@game.Cards[imgNumber-1].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber-1))" />
-                        </a>
-                    </div>
-                </li>
+                @*Creates Center Hex*@
+                else if (i == 6)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                                <img src="/Images/orange.jpg" />
+                                <span style="color: #212121; opacity:0.15">
+                                    88
+                                </span>
+                                <span>
+                                    @String.Format("{0:00}", game.MoveCounter)
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                @*Creates remaining Hexs*@
+                else if (i > 6)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                                <img src="@game.Cards[imgNumber - 1].ShownImage" asp-append-version="true" @onclick="(() => game.Click(imgNumber - 1))" />
+                            </a>
+                        </div>
+                    </li>
+                }
             }
+        </ul>
+    </div>
+}
+
+@*Shows the result screen*@
+else
+{
+    @*Creates the hexagons*@
+    <div style=" display: table-cell; height: 100vh; text-align: center; width: 100vw; vertical-align: middle;">
+
+        <ul id="hexGrid">
+            @*For loop that creates all the hexagons inside the hexGrid*@
+            @for (int i = 0; i < 13; i++)
+            {
+                @*Needed because else the lambda expression doesn't work.
+                    Microsoft says not to use the loop interator inside a lambda epression*@
+                int imgNumber = i;
+
+                @*First 5 Hexs*@
+                if (i < 5)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                @*Creates Reload Hex*@
+                else if (i == 5)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                                <img src="/Images/reload.svg" @onclick="(() => game.Init())" />
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                @*Creates Center Hex*@
+                else if (i == 6)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                                <img src="/Images/orange.jpg" />
+                                <span style="color: #212121; opacity:0.15">
+                                    88
+                                </span>
+                                <span>
+                                    @String.Format("{0:00}", game.MoveCounter)
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                @*Creates SHR-Homepage Hex*@
+                else if (i == 7)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink" href="https://www.bbw-neckargemuend.de/bildung/e-learning/" target="_blank" rel="noopener noreferrer">
+                                <img src="/Images/srhlogo.svg" />
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                @*Creates remaining Hexs*@
+                else if (i > 7)
+                {
+                    <li class="hex">
+                        <div class="hexIn">
+                            <a class="hexLink">
+                            </a>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    //Changes the background color of the snackbars
+    <style>
+        .mdc-snackbar__surface {
+            background-color: rgb(224,72,9)
         }
-    </ul>
+    </style>
 
-</div>
+    //Snackbar for new personal best
+    <MatSnackbar IsOpen="@game.NewBest">
+        <MatSnackbarContent Style="color:white; font-weight:400">
+            Persönlicher Bestwert! Versuche es nochmal oder besuche die Seite des SRH für mehr Infos zur virtuellen Berufsausbildung am BBW Neckargemünd.
+        </MatSnackbarContent>
+    </MatSnackbar>
+
+    //Snackback for no new personal best
+    <MatSnackbar IsOpen="@(!game.NewBest)">
+        <MatSnackbarContent Style="color:white; font-weight:400">
+            Versuche es nochmal oder besuche die Seite des SRH für mehr Infos zur virtuellen Berufsausbildung am BBW Neckargemünd.
+        </MatSnackbarContent>
+    </MatSnackbar>
+
+}
 
 @code{
+
     Game game = new Game();
 }
