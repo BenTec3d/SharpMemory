@@ -92,10 +92,22 @@
 
         .hex span {
             font-size: 13vw;
+            vertical-align: middle;
+            text-align: center;
         }
+
+    .all-surrounding-div {
+        display: table-cell;
+        height: 100vh;
+        text-align: center;
+        width: 100vw;
+        vertical-align: middle;
+    }
+    
 }
 
 @media (orientation: portrait) {
+    
     #hexGrid {
         padding-bottom: 7.4%;
         padding-left: 0%;
@@ -117,5 +129,15 @@
 
         .hex span {
             font-size: 20vw;
+            vertical-align: middle;
+            text-align: center;
         }
+
+    .all-surrounding-div {
+        display: table-cell;
+        height: 80vh;
+        text-align: center;
+        width: 100vw;
+        vertical-align: middle;
+    }
 }
