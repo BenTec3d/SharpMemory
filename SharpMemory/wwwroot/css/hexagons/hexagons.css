@@ -1,4 +1,12 @@
-﻿#hexGrid {
+﻿.all-surrounding-div {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#hexGrid {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
