@@ -19,7 +19,7 @@ namespace SharpMemory
 
         public Game()
         {
-            BestResult = 99;
+            BestResult = 100;
             //Sets up a new round of the game
             Init();
         }
@@ -191,7 +191,7 @@ namespace SharpMemory
         void IncreaseMoveCounter()
         {
             //Makes sure the counter doesn't go above 99
-            if (MoveCounter < 100)
+            if (MoveCounter < 99)
             {
                 //Increases MoveCounter
                 MoveCounter++;
