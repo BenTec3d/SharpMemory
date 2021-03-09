@@ -22,13 +22,13 @@
     .hex::after {
         content: '';
         display: block;
-        padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
+        padding-bottom: 86.602%;
     }
 
 .hexIn {
     position: absolute;
     width: 96%;
-    padding-bottom: 110.851%; /* =  width / sin(60) */
+    padding-bottom: 110.851%;
     margin: 0 2%;
     overflow: hidden;
     visibility: hidden;
@@ -54,7 +54,7 @@
     transform: skewY(-30deg) rotate3d(0,0,1,60deg);
 }
 
-/*** HEX CONTENT **********************************************************************/
+
 .hex img {
     left: -100%;
     right: -100%;
@@ -76,7 +76,7 @@
     font-family: 'DigitalClockFont', Fallback, sans-serif;
 }
 
-/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+
 @media (orientation: landscape) {
 
     #hexGrid {
