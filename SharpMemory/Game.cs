@@ -17,14 +17,13 @@ namespace SharpMemory
         public int BestResult { get; set; }
         public bool NewBest { get; set; }
 
-        public Game()
+        public Game(int bestResult)
         {
-            BestResult = 100;
             //Sets up a new round of the game
-            Init();
+            Init(bestResult);
         }
 
-        public void Init()
+        public void Init(int bestResult)
         {
             //Init Properties
             Cards = new Card[12];
@@ -35,6 +34,7 @@ namespace SharpMemory
             MoveCounter = 0;
             Won = false;
             NewBest = false;
+            BestResult = bestResult;
 
             //Loops through all cards in the Cards array
             for (int i = 0; i < 12; i++)
@@ -93,8 +93,6 @@ namespace SharpMemory
             //Checks if the previous BestResult has been beaten
             if (BestResult > MoveCounter)
             {
-                //Overwrites old BestResult with new BestResult
-                BestResult = MoveCounter;
                 //Tells the html in index.razor that this round was a new best
                 NewBest = true;
             }
